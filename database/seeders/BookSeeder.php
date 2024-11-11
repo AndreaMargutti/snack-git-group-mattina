@@ -34,5 +34,13 @@ class BookSeeder extends Seeder
                 "price" => "20,50",
             ]
         ];
+
+        foreach ($books as $book){
+            $newBook = new Book();
+            $newBook->name = $book["name"];
+            $newBook->author = $book["author"];
+            $newBook->description = $book["description"];
+            $newBook->price = $book["price"];
+        }
     }
 }
