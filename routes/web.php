@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ Route::get('/', [PageController::class, 'home'])->name('pages.home');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
