@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\BookController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/books', [BookController::class, 'index'])->name('books.index');
+Route::middleware('auth')->prefix('/admin')->name("books.")->group(function () {
+    Route::get('/books', [BookController::class, 'index'])->name('index');
+});
