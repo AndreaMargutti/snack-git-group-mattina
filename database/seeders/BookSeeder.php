@@ -41,6 +41,7 @@ class BookSeeder extends Seeder
             $newBook->author = $book["author"];
             $newBook->description = $book["description"];
             $newBook->price = $book["price"];
+            $newBook->save();
         }
     }
 }
